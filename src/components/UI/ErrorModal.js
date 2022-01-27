@@ -1,6 +1,9 @@
+import React from "react";
 import Button from "./Button"
 import Card from "./Card"
 import classes from './ErrorModal.module.css'
+
+
 
 const ErrorModal = (props) => {
     return (
@@ -10,10 +13,13 @@ const ErrorModal = (props) => {
                 <header className={classes.header}>
                     <h2> {props.title}</h2>
                 </header>
-                <div>
+                <div className={classes.content}>
                     <p> {props.message}</p>
                 </div>
-                <Button onClick={props.onConfirm}>Okay</Button>
+                <footer className={classes.actions}>
+                    {props.children}
+                    <Button className={classes.button} id={props.id} onClick={props.onConfirm}>Okay</Button>
+                </footer>
             </Card>
         </div>
 

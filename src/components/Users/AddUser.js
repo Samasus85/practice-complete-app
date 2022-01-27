@@ -22,8 +22,9 @@ const AddUser = (props) => {
                 title: 'invalid input',
                 message: 'Please enter a valid name and age (non empty values)',
             })
+            return;
         }
-        if (+age < 0) {
+        if (+age < 1) {
             setError({
                 title: 'invalid input',
                 message: 'Please enter a valid name and age (age <0)',
@@ -47,6 +48,7 @@ const AddUser = (props) => {
                     <label htmlFor='age' >Age</label>
                     <input id='age' type='number' value={age} onChange={userAgeChangeHandler} />
                     <Button type='submit'>Add User</Button>
+
                 </form>
             </Card>
 

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import AddUser from './components/Users/AddUser';
 import UserList from './components/Users/UserList';
 
@@ -9,11 +8,16 @@ function App() {
   const addUserHandler = (name, age) => {
     setUsers([...users, { name: name, age: age, id: Math.random().toString() }]);
   }
+  const getFilteredHandler = (filteredData) => {
+    setUsers(filteredData)
+  }
   return (
-    <div className="App">
+    <div>
       <AddUser onAddUserHandler={addUserHandler} />
-      <UserList users={users} />
+      <UserList users={users} onGetFilteredData={getFilteredHandler} />
     </div>
   );
 }
+
+
 export default App;
